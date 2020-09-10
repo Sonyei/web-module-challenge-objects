@@ -1,32 +1,39 @@
 ///////////////Menu Items (MVP)///////////////////
 
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch", discount: function() {
-  if(occupation = "teacher" || "student"){
+const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
+const burger = 
+{name: "Burger", 
+price: 18, 
+category: "Lunch", 
+
+discount: function(occupation) {
+  if(occupation === "teacher" || "student"){
     let disc = this.price * 0.25;
-    return this.price - disc;
+    console.log(this.price - disc);
   } else if(occupation = "public") {
     let disc = this.price * 0.10;
-    return this.price - disc;
-    }
-    else {
+    console.log(this.price - disc);
+  } else {
       return('ERR: Not eligible');
+    }
   }
-}
 };
-const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
+
+console.log(burger.discount("i"));
+
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
   let newItem;
 
 function createMenuItem(Name, Cost, Category){
-    this.name = Name;
-    this.cost = Cost;
+    this.name = Name,
+    this.price = Cost,
     this.category = Category;
   }
 
-  console.log('Problem 1 solution of using a constructor function --> ', newItem = new createMenuItem("chicken", 10, "Lunch"));
+  console.log(newItem = new createMenuItem("chicken", 10, "Lunch"));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
@@ -62,7 +69,7 @@ For example, burger.discount("teacher") would return 13.5 and burger.discount("p
 // }
 // };
 
-console.log(`Problem 2 solution to adding a new discout method --> `, burger.discount("public"));
+// console.log(`Problem 2 solution to adding a new discout method to the burger object--> `, burger.discount("i"));
 
 //object methods
 
@@ -81,8 +88,22 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+console.log(`Problem 3 solution to console logging feedback --> `, reviews[5].feedback);
+
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
+
+  let newReviewer;
+
+function newCustomer(name, rating, feedback){
+    this.name = name,
+    this.rating = rating,
+    this.feedback = feedback;
+  }
+
+console.log(newReviwer = new newCustomer("Angelika", 2, "Coffee is cold."));
+ reviews.push(newReviwer);
+ console.log(reviews)
 
 
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
