@@ -1,17 +1,43 @@
 ///////////////Menu Items (MVP)///////////////////
 
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
+const burger = 
+{name: "Burger", 
+price: 18, 
+category: "Lunch", 
+
+discount: function(occupation) {
+  if(occupation !== "public") {
+    discPrice = this.price - (this.price * 0.25);
+    return(discPrice);
+  } else {
+    discPrice = this.price -(this.price * 0.10);
+    return(discPrice);
+    }
+  }
+}
+
+//console.log(burger.discount("public"));
+
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-function createMenuItem(name, cost, category){
-    /* Code here */
-}
+//   let newItem;
+
+// function createMenuItem(Name, Cost, Category){
+//     this.name = Name,
+//     this.price = Cost,
+//     this.category = Category;
+//   }
+
+  // console.log(newItem = new createMenuItem("chicken", 10, "Lunch"));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
+// console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fajitas", 12, "Dinner"));
+// console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fideos", 8, "Lunch"));
+// console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Tamales", 20, "Anytime"));
 
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
@@ -24,6 +50,16 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
+// burger.discount = function applyDiscount(occupation) {
+
+
+// This is the function I added to the burger object to get the discount:
+
+console.log(`Problem 2 solution of reaching a discounted price based on string--> `, burger.discount("teacher"));
+
+// console.log(`Problem 2 solution to adding a new discout method to the burger object--> `, burger.discount("i"));
+
+//object methods
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -40,11 +76,29 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
+// console.log(`Problem 3 solution to console logging feedback --> `, reviews[5].feedback);
+
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+// function newCustomer(name, rating, feedback, array) {
+//   array.push({name: name, rating: rating, feedback: feedback})
+//   return array;
+// }
 
-/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+// console.log(`Problem 4 solution to adding a new object with the same format to the existing array --> `, new newCustomer('Angelika', 2, 'Coffee is cold', reviews));
+
+
+/* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays" */
+
+function addFeedback(name, feedback, array) {
+  for(let i = 0; i !== name; i++) {
+  array.push({feedback: feedback})
+  return array;
+  }
+}
+
+console.log(`Problem 5 solution to adding data to a specific key --> `, addFeedback("Reyna", "this place is chill with really cool people, great for getting work done on weekdays", reviews));
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
