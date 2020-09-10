@@ -1,7 +1,19 @@
 ///////////////Menu Items (MVP)///////////////////
 
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch"};
+const burger = {name: "Burger", price: 18, category: "Lunch", discount: function() {
+  if(occupation = "teacher" || "student"){
+    let disc = this.price * 0.25;
+    return this.price - disc;
+  } else if(occupation = "public") {
+    let disc = this.price * 0.10;
+    return this.price - disc;
+    }
+    else {
+      return('ERR: Not eligible');
+  }
+}
+};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
@@ -14,13 +26,13 @@ function createMenuItem(Name, Cost, Category){
     this.category = Category;
   }
 
-  console.log(newItem = new createMenuItem("chicken", 10, "lunch"));
+  console.log('Problem 1 solution of using a constructor function --> ', newItem = new createMenuItem("chicken", 10, "Lunch"));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-console.log(newItem = new createMenuItem("Fajitas", 10, "Dinner"));
-console.log(newItem = new createMenuItem("Fideos con Pollo", 10, "Lunch"));
-console.log(newItem = new createMenuItem("Tamales", 10, "Dinner"));
+console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fajitas", 12, "Dinner"));
+console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fideos", 8, "Lunch"));
+console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Tamales", 20, "Anytime"));
 
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
@@ -33,19 +45,26 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
-burger.discount = function Discount(occupation) {
-  if(occupation = "teacher" || "student"){
-    console.log(this.price * 0.25);
-  } else if(occupation = "public"){
-    console.log(this.price * 0.10);
-    }
-    else {
-      console.log(ERR);
-  }
-};
+// burger.discount = function applyDiscount(occupation) {
 
 
-console.log(burger.discount("teacher"));
+// This is the anonymouse function I added to the burger object to get the discount:
+//   if(occupation = "teacher" || "student"){
+//     let disc = this.price * 0.25;
+//     return this.price - disc;
+//   } else if(occupation = "public") {
+//     let disc = this.price * 0.10;
+//     return this.price - disc;
+//     }
+//     else {
+//       return(ERR);
+//   }
+// }
+// };
+
+console.log(`Problem 2 solution to adding a new discout method --> `, burger.discount("public"));
+
+//object methods
 
 
 ///////////////Reviews (MVP)///////////////////
