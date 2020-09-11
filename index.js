@@ -18,26 +18,26 @@ discount: function(occupation) {
   }
 }
 
-//console.log(burger.discount("public"));
+console.log(burger.discount("public"));
 
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-//   let newItem;
+  let newItem;
 
-// function createMenuItem(Name, Cost, Category){
-//     this.name = Name,
-//     this.price = Cost,
-//     this.category = Category;
-//   }
+function createMenuItem(Name, Cost, Category){
+    this.name = Name,
+    this.price = Cost,
+    this.category = Category;
+  }
 
-  // console.log(newItem = new createMenuItem("chicken", 10, "Lunch"));
+  console.log(newItem = new createMenuItem("chicken", 10, "Lunch"));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-// console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fajitas", 12, "Dinner"));
-// console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fideos", 8, "Lunch"));
-// console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Tamales", 20, "Anytime"));
+console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fajitas", 12, "Dinner"));
+console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Fideos", 8, "Lunch"));
+console.log('Problem 1.b solution using same constructor function --> ', newItem = new createMenuItem("Tamales", 20, "Anytime"));
 
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
@@ -57,7 +57,7 @@ For example, burger.discount("teacher") would return 13.5 and burger.discount("p
 
 console.log(`Problem 2 solution of reaching a discounted price based on string--> `, burger.discount("teacher"));
 
-// console.log(`Problem 2 solution to adding a new discout method to the burger object--> `, burger.discount("i"));
+console.log(`Problem 2 solution to adding a new discout method to the burger object--> `, burger.discount("public"));
 
 //object methods
 
@@ -76,29 +76,25 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 3: Console.log just Julius' feedback */
 
-// console.log(`Problem 3 solution to console logging feedback --> `, reviews[5].feedback);
+console.log(`Problem 3 solution to console logging feedback --> `, reviews[5].feedback);
 
 
 /* Task 4: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
-// function newCustomer(name, rating, feedback, array) {
-//   array.push({name: name, rating: rating, feedback: feedback})
-//   return array;
-// }
+function newCustomer(name, rating, feedback, array) {
+  array.push({name: name, rating: rating, feedback: feedback})
+  return array;
+}
 
-// console.log(`Problem 4 solution to adding a new object with the same format to the existing array --> `, new newCustomer('Angelika', 2, 'Coffee is cold', reviews));
+console.log(`Problem 4 solution to adding a new object with the same format to the existing array --> `, new newCustomer('Angelika', 2, 'Coffee is cold', reviews));
 
 
 /* Task 5: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays" */
 
-function addFeedback(name, feedback, array) {
-  for(let i = 0; i !== name; i++) {
-  array.push({feedback: feedback})
-  return array;
-  }
-}
+x = reviews.findIndex((obj => obj.name == "Reyna"));
+reviews[x].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
+console.log(`Problem 5 solution of adding missing value to key feedback --> `, reviews);
 
-console.log(`Problem 5 solution to adding data to a specific key --> `, addFeedback("Reyna", "this place is chill with really cool people, great for getting work done on weekdays", reviews));
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
@@ -112,24 +108,32 @@ and should return a string in the format `{name} gave the restaurant a {rating},
  * For example, if getReviewByIndex is invoked with reviews and the number 0
  * it will return `Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!`
 */
-function getReviewByIndex(reviews, index) {
-    /* code here */
-  }
-  
+
+function getReviewByIndex(i, array) {
+
+return `${array[i].name} gave the restaurant a ${array[i].rating}, and their feedback was: ${array[i].feedback}`;
+}
+
+console.log(`Problem 6 solution of return review by index --->`, getReviewByIndex([0], reviews))
+
 
 /* Task 7: Write a function to get information about the most recent review called `getLastReview`
 
 getLastReview should accept:
   (1) an array of objects 
   
-and should return a string in the format `name} gave the restaurant a {rating}, and their feedback was: {feedback}`
+and should return a string in the format `{name} gave the restaurant a {rating}, and their feedback was: {feedback}`
 
 For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
 */
-function getLastReview(/* code here */) {
-    /* code here */
-  } 
 
+
+function getLastReview(array) {
+  i = array.length-2;
+  return `${array[i].name} gave the restaurant a ${array[i].rating}, and their feedback was: ${array[i].feedback}`
+}
+
+console.log(`Problem 7 solution of logging the last review --> `, getLastReview(reviews));
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
