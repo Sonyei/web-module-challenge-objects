@@ -6,19 +6,16 @@ const burger =
 {name: "Burger", 
 price: 18, 
 category: "Lunch", 
-
 discount: function(occupation) {
-  if(occupation !== "public") {
-    discPrice = this.price - (this.price * 0.25);
-    return(discPrice);
-  } else {
-    discPrice = this.price -(this.price * 0.10);
-    return(discPrice);
-    }
+  if (occupation == "teacher" || occupation == "student") {
+    return this.price - (this.price * 0.25);
+  } else if (occupation === "public") {
+    return this.price - this.price * 0.10;
   }
 }
+}
 
-console.log(burger.discount("public"));
+console.log(burger.discount("teacher"));
 
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
